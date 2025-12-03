@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block auth_content %}
+<div class="auth-container">
+    <div class="auth-card">
+        <h1 style="text-align: center; color: #667eea;">🏥 Stroke Prediction System</h1>
+        <p style="text-align: center; margin: 20px 0; color: #666;">
+            Secure web-based application for managing patient stroke prediction data
+        </p>
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="{{ url_for('login') }}" class="btn btn-primary" style="margin-right: 10px;">Login</a>
+            <a href="{{ url_for('register') }}" class="btn btn-success">Register</a>
+        </div>
+        <div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 5px;">
+            <h3 style="color: #333;">Features:</h3>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li>Secure user authentication with password hashing</li>
+                <li>Manage patient stroke prediction data</li>
+                <li>CRUD operations for patient records</li>
+                <li>Search and filter patients</li>
+                <li>View statistics and insights</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

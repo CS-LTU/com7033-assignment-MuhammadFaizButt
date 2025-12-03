@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Stroke Prediction System{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>Dashboard</h2>
+    <p>Welcome, {{ current_user.username }}! Manage patient stroke prediction data securely.</p>
+    
+    <div style="margin-top: 20px;">
+        <a href="{{ url_for('load_dataset') }}" class="btn btn-success">Load Dataset from CSV</a>
+        <p style="margin-top: 10px; color: #666; font-size: 14px;">
+            Click this button to load patient data from the CSV file into MongoDB.
+        </p>
+    </div>
+</div>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <h2>{{ stats.total_patients if stats else 0 }}</h2>
+        <p>Total Patients</p>
+    </div>
+    
+    <div class="stat-card">
+        <h2>{{ stats.stroke_patients if stats else 0 }}</h2>
+        <p>Stroke Patients</p>
+    </div>
+    
+    <div class="stat-card">
+        <h2>{{ stats.non_stroke_patients if stats else 0 }}</h2>
+        <p>Non-Stroke Patients</p>
+    </div>
+    
+    <div class="stat-card">
+        <h2>{{ stats.stroke_percentage if stats else 0 }}%</h2>
+        <p>Stroke Percentage</p>
+    </div>
+</div>
+
+<div class="card" style="margin-top: 30px;">
+    <h3>Quick Actions</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 15px;">
+        <a href="{{ url_for('patients') }}" class="btn btn-primary">View All Patients</a>
+        <a href="{{ url_for('add_patient') }}" class="btn btn-success">Add New Patient</a>
+        <a href="{{ url_for('search') }}" class="btn btn-secondary">Search Patients</a>
+    </div>
+</div>
+{% endblock %}
