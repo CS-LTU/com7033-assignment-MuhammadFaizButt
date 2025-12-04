@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block title %}{{ action }} Patient - Stroke Prediction System{% endblock %}
+
+{% block content %}
+<div class="card">
+    <h2>{{ action }} Patient</h2>
+    
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+            <div>
+                <h3>Personal Information</h3>
+                
+                <div class="form-group">
+                    {{ form.gender.label }}
+                    {{ form.gender(class="form-control") }}
+                    {% if form.gender.errors %}
+                        {% for error in form.gender.errors %}
+                            <div class="form-error">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.age.label }}
+                    {{ form.age(class="form-control") }}
+                    {% if form.age.errors %}
+                        {% for error in form.age.errors %}
+                            <div class="form-error">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.ever_married.label }}
+                    {{ form.ever_married(class="form-control") }}
+                    {% if form.ever_married.errors %}
+                        {% for error in form.ever_married.errors %}
+                            <div class="form-error">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.work_type.label }}
+                    {{ form.work_type(class="form-control") }}
+                    {% if form.work_type.errors %}
+                        {% for error in form.work_type.errors %}
+                            <div class="form-error">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.Residence_type.label }}
+                    {{ form.Residence_type(class="form-control") }}
+                    {% if form.Residence_type.errors %}
+                        {% for error in form.Residence_type.errors %}
+                            <div class="form-error">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            
+            <div>
+                <h3>Medical Information</h3>
+                
+                <div class="form-group">
+                    {{ form.hypertension.label }}
+                    {{ form.hypertension(class="form-control") }}
+                    {% if form.hypertension.errors %}
+                        {% for error in form.hypertension.errors %}
+                            <div class="form-error">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.heart_disease.label }}
+                    {{ form.heart_disease(class="form-control") }}
+                    {% if form.heart_disease.errors %}
+                        {% for error in form.heart_disease.errors %}
+                            <div class="form-error">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.avg_glucose_level.label }}
+                    {{ form.avg_glucose_level(class="form-control") }}
+                    {% if form.avg_glucose_level.errors %}
+                        {% for error in form.avg_glucose_level.errors %}
+                            <div class="form-error">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.bmi.label }}
+                    {{ form.bmi(class="form-control", placeholder="Optional") }}
+                    {% if form.bmi.errors %}
+                        {% for error in form.bmi.errors %}
+                            <div class="form-error">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.smoking_status.label }}
+                    {{ form.smoking_status(class="form-control") }}
+                    {% if form.smoking_status.errors %}
+                        {% for error in form.smoking_status.errors %}
+                            <div class="form-error">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+                
+                <div class="form-group">
+                    {{ form.stroke.label }}
+                    {{ form.stroke(class="form-control") }}
+                    {% if form.stroke.errors %}
+                        {% for error in form.stroke.errors %}
+                            <div class="form-error">{{ error }}</div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        
+        <div style="margin-top: 30px;">
+            <button type="submit" class="btn btn-primary">{{ action }} Patient</button>
+            <a href="{{ url_for('patients') }}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </form>
+</div>
+{% endblock %}
